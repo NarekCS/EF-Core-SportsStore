@@ -1,0 +1,10 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6"
+  },
+  "resolutions": {
+    "bootstrap": "4.1.3"
+  }
+}
