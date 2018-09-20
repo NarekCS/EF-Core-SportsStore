@@ -2,6 +2,9 @@
 @model IEnumerable<Product>
 <h3 class="p-2 bg-primary text-white text-center">Products</h3>
 
+<div class="text-center">
+    @await Html.PartialAsync("Pages", Model)
+</div>
 <div class="container-fluid mt-3">
     @*@if (ViewBag.UpdateAll != true)
     {*@

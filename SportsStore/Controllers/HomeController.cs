@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
+using SportsStore.Models.Pages;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,12 +19,15 @@ namespace SportsStore.Controllers
             repository = repo;
             catRepository = catRepo;
         }
-
-        public IActionResult Index()
+        public IActionResult Index(QueryOptions options)
         {
-           // System.Console.Clear();
-            return View(repository.Products);
+            return View(repository.GetProducts(options));
         }
+        //public IActionResult Index()
+        //{
+        //   // System.Console.Clear();
+        //    return View(repository.Products);
+        //}
       
         //[HttpPost]
         //public IActionResult AddProduct(Product product)
