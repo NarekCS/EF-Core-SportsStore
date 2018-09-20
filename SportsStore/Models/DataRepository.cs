@@ -12,9 +12,9 @@ namespace SportsStore.Models
         private DataContext context;
         public DataRepository(DataContext ctx) => context = ctx;
 
-        public IEnumerable<Product> Products => context.Products.Include(p => p.Category).ToArray();
+        public IEnumerable<Product> Products => context.Products.ToArray();//Include(p => p.Category).ToArray();
 
-        public Product GetProduct(long key) => context.Products.Include(p => p.Category).First(p => p.Id == key);
+        public Product GetProduct(long key) => context.Products.Find(key);//.Include(p => p.Category).First(p => p.Id == key);
 
         public void AddProduct(Product product)
         {

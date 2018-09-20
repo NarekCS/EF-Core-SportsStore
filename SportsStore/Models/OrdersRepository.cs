@@ -10,8 +10,8 @@ namespace SportsStore.Models
     {
         private DataContext context;
         public OrdersRepository(DataContext ctx) => context = ctx;
-        public IEnumerable<Order> Orders => context.Orders.Include(o => o.Lines).ThenInclude(l => l.Product);
-        public Order GetOrder(long key) => context.Orders.Include(o => o.Lines).First(o => o.Id == key);
+        public IEnumerable<Order> Orders => context.Orders;//.Include(o => o.Lines).ThenInclude(l => l.Product);
+        public Order GetOrder(long key) => context.Orders.Find(key);//.Include(o => o.Lines).First(o => o.Id == key);
         public void AddOrder(Order order)
         {
             context.Orders.Add(order);

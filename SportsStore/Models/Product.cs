@@ -14,6 +14,6 @@ namespace SportsStore.Models
         public decimal RetailPrice { get; set; }
 
         public long CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

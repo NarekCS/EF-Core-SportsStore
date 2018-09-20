@@ -26,7 +26,7 @@ namespace SportsStore
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrdersRepository, OrdersRepository>();
             string conString = Configuration["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(conString));
+            services.AddDbContext<DataContext>(options => options.UseLazyLoadingProxies().UseSqlServer(conString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
