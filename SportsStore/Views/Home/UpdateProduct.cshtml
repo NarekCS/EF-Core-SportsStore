@@ -11,9 +11,18 @@
         <label asp-for="Name"></label>   
         <input asp-for="Name" class="form-control" /> 
     </div>  
-    <div class="form-group">    
-        <label asp-for="Category"></label>     
-        <input asp-for="Category" class="form-control" /> 
+    <div class="form-group">
+        <label asp-for="Category"></label>
+        <select class="form-control" asp-for="CategoryId">  
+             @if (Model.Id == 0)
+                {
+                    <option disabled selected>Choose Category</option>
+                }     
+             @foreach (Category c in ViewBag.Categories)
+                {
+                    <option selected=@(Model.Category?.Id == c.Id) value="@c.Id">@c.Name</option>
+                }        
+        </select>
     </div>  
     <div class="form-group">   
         <label asp-for="PurchasePrice"></label>  
