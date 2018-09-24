@@ -14,7 +14,7 @@ namespace SportsStore.Models
         public DataRepository(DataContext ctx) => context = ctx;
 
         public IEnumerable<Product> Products => context.Products.ToArray();//Include(p => p.Category).ToArray();
-
+        
         public PagedList<Product> GetProducts(QueryOptions options)
         {
             return new PagedList<Product>(context.Products.Include(p => p.Category), options);
