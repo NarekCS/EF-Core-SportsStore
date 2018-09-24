@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
+using SportsStore.Models.Pages;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,7 +14,7 @@ namespace SportsStore.Controllers
     {
         private ICategoryRepository repository;
         public CategoriesController(ICategoryRepository repo) => repository = repo;
-        public IActionResult Index() => View(repository.Categories);
+        public IActionResult Index(QueryOptions options) => View(repository.GetCategories(options));
 
         [HttpPost]
         public IActionResult AddCategory(Category category)
